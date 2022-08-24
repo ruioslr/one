@@ -1,6 +1,6 @@
 {
   "name": "@elune/kucomponent",
-  "version": "0.0.01",
+  "version": "0.0.1",
   "author": "lirui",
   "license": "MIT",
   "main": "lib/cjs/index.js",
