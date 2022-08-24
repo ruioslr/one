@@ -12,10 +12,10 @@
       "dependsOn": ["@elune/shared#build"]
     },
     "kucom-dev": {
-      "dependsOn": ["shared-dev","@elune/kucom#dev"]
+      "dependsOn": ["shared-dev","@elune/kucomponent#dev"]
     },
     "kucom-build": {
-      "dependsOn": ["@elune/kucom#build"]
+      "dependsOn": ["@elune/kucomponent#build"]
     },
 
     "dev": {

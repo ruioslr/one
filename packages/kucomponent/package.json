@@ -1,5 +1,5 @@
 {
-  "name": "@elune/kucom",
+  "name": "@elune/kucomponent",
   "version": "0.0.01",
   "author": "lirui",
   "license": "MIT",
@@ -25,7 +25,8 @@
     "Kutb",
     "table",
     "hooks",
-    "react"
+    "react",
+    "kucomponent"
   ],
   "peerDependencies": {
     "@elune/kufm": "^0.9.17",
