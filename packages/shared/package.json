@@ -5,7 +5,10 @@
   "license": "MIT",
   "main": "lib/cjs/index.js",
   "maintainers": [
-    "lirui"
+    {
+      "name": "lirui",
+      "email": "lirui@akulaku.com"
+    }
   ],
   "module": "lib/esm/index.js",
   "browser": "lib/umd/index.js",
