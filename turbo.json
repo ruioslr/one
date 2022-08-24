@@ -17,7 +17,6 @@
     "kucom-build": {
       "dependsOn": ["@elune/kucomponent#build"]
     },
-
     "dev": {
       "cache": false
     },
