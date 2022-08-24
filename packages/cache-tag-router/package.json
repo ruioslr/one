@@ -1,0 +1,39 @@
+{
+  "name": "@elune/cache-tag-route",
+  "version": "0.0.18",
+  "author": "lirui",
+  "license": "MIT",
+  "main": "lib/cjs/index.js",
+  "maintainers": [
+    "lirui"
+  ],
+  "module": "lib/esm/index.js",
+  "browser": "lib/umd/index.js",
+  "types": "typings/index.d.ts",
+  "scripts": {
+    "dev": "set NODE_ENV=developemnt&& rollup -c rollup.config.js -w",
+    "build": "rm -fr typings && rm -fr lib  && tsc && set NODE_ENV=production && rollup --config rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+git@git.silvrr.com:eton/cache-tag-router.git"
+  },
+  "bugs": {
+    "url": "git@git.silvrr.com:eton/cache-tag-router.git"
+  },
+  "keywords": [
+    "route",
+    "cache",
+    "tag",
+    "react"
+  ],
+  "peerDependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "antd": "^4.16.9",
+    "lodash": "^4.17.21",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^6.3.0",
+    "rmox": "^1.1.4"
+  }
+}

@@ -1,0 +1,134 @@
+@primary-color: '#377EF9';
+@font-size-base: 12px;
+@border-radius-base: 4px;
+@border-color-base: #d6d9df;
+@table-header-bg: #f7f8fa;
+@border-color-split: #e2e3e6;
+@table-padding-horizontal-md: 12px;
+@primary-padding: 12px;
+
+
+.kutb {
+  .ant-form-inline .ant-form-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .ant-table-tbody {
+    .ant-btn {
+      height: fit-content;
+      padding: 0px 10px 0px 0px;
+    }
+  }
+
+  .ant-table-pagination.ant-pagination {
+    margin: 5px 0 10px;
+  }
+  .paginationContainer {
+    position: relative;
+    height: 24px;
+    margin-top: 8px;
+  }
+  .pagination {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+
+}
+.react-resizable {
+  position: relative;
+  background-clip: padding-box;
+
+  // 其它样式
+  user-select:none;
+  width: 100%;
+  //display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+}
+
+.react-resizable-handle {
+  background: #ccc;
+
+  position: absolute;
+  right: 1px;
+  z-index: 1;
+  width: 1px;
+  cursor: col-resize;
+  height: 10px;
+  border-radius: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.filterColumns {
+  width: 450px;
+  padding: 0px 18px 18px;
+
+  .ant-checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .ant-checkbox-wrapper {
+    width: 25%;
+  }
+  .ant-checkbox + span {
+    padding: 0 0 0 6px;
+    font-size: 12px;
+  }
+  .ant-checkbox-group-item {
+    margin-right: 0px;
+    margin-bottom: 18px;
+  }
+  .ant-checkbox+span {
+    word-break: keep-all;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.filterColumnsBox {
+  border: 1px solid rgba(227, 227, 227, 100);
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 18px 0px 0px 18px;
+}
+
+.filterTitle {
+  font-size: @font-size-base;
+  margin: 18px 0 6px;
+}
+
+
+.row_wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  align-items: end;
+}
+
+.ellipise {
+  width: 100%;
+  //display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: keep-all;
+}
+
+.mL-8 {
+  margin-left: 8px;
+}
+
+.mR-10 {
+  margin-right: 10px;
+}
+
+.mT-10 {
+  margin-top: 10px;
+}

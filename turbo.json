@@ -1,0 +1,28 @@
+{
+  "pipeline": {
+    "build": {
+      "outputs": [
+        ".next/**"
+      ],
+      "dependsOn": [
+        "^build"
+      ]
+    },
+    "shared-build": {
+      "dependsOn": ["@elune/shared#build"]
+    },
+    "kucom-dev": {
+      "dependsOn": ["shared-dev","@elune/kucom#dev"]
+    },
+    "kucom-build": {
+      "dependsOn": ["@elune/kucom#build"]
+    },
+
+    "dev": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}

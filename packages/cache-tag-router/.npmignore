@@ -1,0 +1,8 @@
+node_modules/
+yarn-error.log
+.size-snapshot.json
+.idea
+.vscode
+yarn.lock
+publish.sh
+.gitignore

@@ -1,0 +1,11 @@
+**/node_modules/
+**/lib/
+**/yarn-error.log
+**/typings/
+.size-snapshot.json
+.idea
+.vscode
+**/build/**
+**/dist/**
+.next/**
+**/.turbo/
