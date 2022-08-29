@@ -7,6 +7,7 @@ import { getConfig } from '@/config';
 import { useOutlet } from 'react-router-dom';
 
 import './index.less';
+import ErrorBoundary from '@/components/ErrorBoundary';
 
 export interface ITabRouteProps {
   user?: {
@@ -27,7 +28,19 @@ const useTabRoute = ({ user, useTranslation }: ITabRouteProps) => {
   const routeConfig = user?.routeList.find((v) => v.path === location.pathname);
   const page = useOutlet();
   const activeKey = routeConfig.samekeyWithUrl ? routeConfig.path : getNowKeys();
-  console.log(activeKey, 'activcekey');
+
+  // 如果加了samekeyWithUrl属性，但是点击菜单导致只跳转了path，没有search，则给它加上search
+  if (
+    routeConfig.samekeyWithUrl &&
+    !location.search &&
+    tabMap.current.get(routeConfig.path)?.location.search
+  ) {
+    history.push(
+      routeConfig.path + tabMap.current.get(routeConfig.path)?.location.search,
+      { replace: true },
+    );
+  }
+
   useCreation(() => {
     console.log(user?.routeList, 'list');
     user?.routeList?.forEach((v) => {
@@ -69,7 +82,13 @@ const useTabRoute = ({ user, useTranslation }: ITabRouteProps) => {
           key={key}
           className={`${activeKey === key ? 'show' : 'hide'}`}
           style={{ height: '100%' }}>
-          {noCache ? page : <FreezeView freeze={activeKey !== key}>{page}</FreezeView>}
+          {noCache ? (
+            page
+          ) : (
+            <FreezeView freeze={activeKey !== key}>
+              <ErrorBoundary>{page}</ErrorBoundary>
+            </FreezeView>
+          )}
         </div>
       ))}
     </>,

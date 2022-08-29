@@ -1,5 +1,4 @@
-
-import {FC, memo, Suspense, useEffect, useRef} from 'react';
+import { FC, memo, Suspense, useEffect, useRef } from 'react';
 
 interface IFreeze {
   freeze: boolean;
@@ -13,7 +12,6 @@ interface ICache {
   resolve?: (value: void | PromiseLike<void>) => void;
 }
 export const Freeze: FC<IFreezeView> = ({ freeze, children }) => {
-
   const promiseCache = useRef<ICache>({}).current;
   if (freeze && !promiseCache.promise) {
     promiseCache.promise = new Promise((resolve) => {
@@ -30,9 +28,6 @@ export const Freeze: FC<IFreezeView> = ({ freeze, children }) => {
   return <>{children}</>;
 };
 const FreezeView: FC<IFreezeView> = ({ freeze, children, placeholder = null }) => {
-
-
-
   return (
     <Suspense fallback={placeholder}>
       <Freeze freeze={freeze}>{children}</Freeze>

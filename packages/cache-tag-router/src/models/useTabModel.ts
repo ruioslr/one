@@ -10,7 +10,13 @@ let TAB_NAME_KEY = 'tab_name';
 export const getTabNameKey = () => TAB_NAME_KEY;
 export const setTabNameKey = (s: string) => (TAB_NAME_KEY = s);
 
-export const getNowKeys = () => location.pathname + location.search;
+// tab_name 相同，也认为是同一个页面
+const getReg = (variable: string) =>
+  new RegExp('(^|&)' + variable + '=([^&]*)(&|$)', 'i');
+export const getNowKeys = (isSameKeyWithURL?: boolean) =>
+  isSameKeyWithURL
+    ? location.pathname
+    : location.pathname + location.search?.replace(getReg(TAB_NAME_KEY), '');
 
 export interface TabProps extends RouterConfig {
   key: string;
@@ -32,13 +38,17 @@ const useTabModel = () => {
    * @param {string} path 关闭并跳转的地址
    */
   const closeTab = usePersistFn((selectKey = getNowKeys(), path?: string) => {
-    console.log(history, 'history');
-    if (tabMap.current.size >= 2) {
+    if (tabMap.current.size >= 1) {
+      const selectTab = tabMap.current.get(selectKey);
       tabMap.current.delete(selectKey);
+
       // 如果删除的是当前激活的tab，则激活上一个tab
       const lastTab = last([...tabMap.current.values()]);
       history.push(
-        path ?? (getNowKeys() === selectKey && lastTab ? lastTab.key : getNowKeys()),
+        path ??
+          (getNowKeys(selectTab?.samekeyWithUrl) === selectKey && lastTab
+            ? lastTab.location.href
+            : getNowKeys()),
         { replace: true },
       );
     }
@@ -66,7 +76,12 @@ const useTabModel = () => {
     if (tab) {
       // 如果有samekeyWithUrl,则什么都不做，使用之前的page
       if (routeConfig.samekeyWithUrl) {
-        tabMap.current.set(activeKey, { ...newTab, page: tab.page ?? page });
+        tabMap.current.set(activeKey, {
+          ...newTab,
+          // location: tab.location, // 用原来的location
+          page: tab.page ?? page,
+        });
+        console.log(tabMap.current.get(activeKey), 'location');
         return;
       }
 
@@ -79,12 +94,9 @@ const useTabModel = () => {
   });
   // 选中标签
   const selectTab = usePersistFn((selectTab: TabProps) => {
-    history.push(
-      selectTab.samekeyWithUrl
-        ? selectTab.location.pathname + selectTab.location.search
-        : selectTab.key,
-      { replace: true },
-    );
+    history.push(selectTab.location.pathname + selectTab.location.search, {
+      replace: true,
+    });
   });
 
   // 清空标签

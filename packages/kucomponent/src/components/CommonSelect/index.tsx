@@ -34,6 +34,7 @@ const CommonSelect: ForwardRefRenderFunction<CommonSelectRef, CommonFormSelectPr
         onRefreshHandler,
         value,
         showMore,
+        searchParams,
         ...other
     },
     ref,

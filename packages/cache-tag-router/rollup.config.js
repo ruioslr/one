@@ -12,6 +12,9 @@ import path from 'path';
 import alias from '@rollup/plugin-alias';
 
 import cssnano from 'cssnano';
+
+const isProd = process.env.BUILD === 'true';
+
 const outConfig = {
   sourcemap: true,
   name: packageJSON.name,
@@ -57,7 +60,7 @@ export default {
 
     sizeSnapshot(),
     terser({
-      compress: { drop_console: true },
+      compress: { drop_console: isProd },
     }),
     resolve({
       extensions: ['.ts', '.tsx'],

@@ -1,4 +1,5 @@
 import {FormInstance, SelectProps} from "antd";
+import {CommonObject} from "@elune/kufm";
 
 export type CommonFormSelectProps = SelectProps<any> & CommonSelectProps;
 export type OptionsTypes = {
@@ -22,7 +23,8 @@ export type CommonSelectProps = {
   valueKey?: string; // 需要额外对应的值的key
   render?: (data: any) => Element | JSX.Element;
   renderText?: (text: string | number) => string | number;
-  searchFun?: (value: any, formValues: any[]) => Promise<any>; // 搜索方法
+  searchFun?: (value: any, formValues?: any[]) => Promise<any>; // 搜索方法searchFun
+  searchParams?: CommonObject; // 从props上传递给组件的搜索值，用于重新调用
   onBackChangeFrom?: (value?: object, options?: any) => void; // 返回选中的值(返回value值给后端使用)
   relevance?: string | string[]; // select 关联对应select字段 关联子项目 (支持一对多关联)
   relevanceOptions?: (form: FormInstance<any>) => OptionsTypes[];

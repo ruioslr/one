@@ -4,5 +4,18 @@ import useTabModel, {
   getNowKeys,
 } from './models/useTabModel';
 import useTabRoute from './TagRoute';
-export { useTabRoute, useTabModel, setTabNameKey, getTabNameKey, getNowKeys };
+import RouteView from './View';
+import { history } from './utils';
+
+export * from 'react-router-dom';
+
+export {
+  useTabRoute,
+  useTabModel,
+  setTabNameKey,
+  getTabNameKey,
+  getNowKeys,
+  RouteView,
+  history,
+};
 export * from './config';

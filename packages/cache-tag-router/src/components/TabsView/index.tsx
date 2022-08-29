@@ -33,6 +33,7 @@ const TabsView: FC<TabsViewProps> = ({
    * @description: Tab关闭回调
    */
   const handleClose = (key: string) => (e: MouseEvent<HTMLElement>) => {
+    console.log(key);
     e.stopPropagation();
     closeTab(key);
   };
@@ -110,8 +111,10 @@ const TabsView: FC<TabsViewProps> = ({
                           <div
                             className={`tab hover ${activedStyle} row_center`}
                             onClick={() => handleChange(tab)}>
-                            {t(`${title}`)}
-                            {tagName}
+                            <div className="tab-text">
+                              {t(`${title}`)}
+                              {tagName}
+                            </div>
                             {!alwayTag && (
                               <CloseOutlined
                                 className={`tab_close row_center`}

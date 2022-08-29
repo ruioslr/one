@@ -14,6 +14,7 @@ export type BreadConfig = {
 export interface RouterConfig extends Pick<TabConfig, 'title' | 'alwayTag'> {
   path?: string; // 路径
   Component?: React.ComponentType; // 组件
+  component?: React.ComponentType; // 组件
   tagName?: string; // 标签名称(详情使用)
   redirect?: string; // 重定向地址
   icon?: React.ReactElement | string; // 图标
@@ -24,5 +25,5 @@ export interface RouterConfig extends Pick<TabConfig, 'title' | 'alwayTag'> {
   noCache?: boolean; // 不缓存页面
   breadList?: BreadConfig[];
   strict?: boolean;
-  samekeyWithUrl?: boolean; // 是否直接拿url做key，即： search不同，也使用同一个page
+  samekeyWithUrl?: boolean; // 是否直接拿path做key，即： search不同，也使用同一个page
 }
