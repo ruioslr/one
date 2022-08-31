@@ -3,8 +3,8 @@ import useCreation from '@/hooks/useCreation';
 import useTabModel, { getNowKeys } from '@/models/useTabModel';
 import { FC, memo, ReactNode, useEffect } from 'react';
 import TabsView from '@/components/TabsView';
-import { getConfig } from '@/config';
 import { useOutlet } from 'react-router-dom';
+import { history } from '@/utils';
 
 import './index.less';
 import ErrorBoundary from '@/components/ErrorBoundary';
@@ -22,7 +22,6 @@ export interface ITabRouteProps {
 
 const useTabRoute = ({ user, useTranslation }: ITabRouteProps) => {
   const tabModel = useTabModel();
-  const { history } = getConfig();
 
   const { tabMap, selectTab, closeTab, clearTab, removeOtherTab, addTab } = tabModel;
   const routeConfig = user?.routeList.find((v) => v.path === location.pathname);

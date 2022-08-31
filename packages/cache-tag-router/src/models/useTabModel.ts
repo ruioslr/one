@@ -4,7 +4,7 @@ import { ReactElement, useRef } from 'react';
 import { createModel } from 'rmox';
 import { getQueryVariable } from '@/utils';
 import { RouterConfig } from '@/interface/types';
-import { getConfig } from '@/config';
+import { history } from '@/utils';
 
 let TAB_NAME_KEY = 'tab_name';
 export const getTabNameKey = () => TAB_NAME_KEY;
@@ -29,8 +29,6 @@ export interface ITabInfo {
   page: ReactElement | null;
 }
 const useTabModel = () => {
-  const { history } = getConfig();
-
   const tabMap = useRef(new Map<string, TabProps>());
   /**
    * @description: 关闭tab
