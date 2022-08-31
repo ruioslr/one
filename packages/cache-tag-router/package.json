@@ -1,6 +1,6 @@
 {
   "name": "@elune/cache-tag-route",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "lirui",
   "license": "MIT",
   "main": "lib/cjs/index.js",
